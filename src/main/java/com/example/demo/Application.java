@@ -46,12 +46,27 @@ public class Application {
 
             student.setStudentIdCard(studentIdCard);
 
-            student.enrolToCourse(new Course("Computer Science","IT"));
-            student.enrolToCourse(new Course("Amigoscode Spring Data JPA","IT"));
+          //  studentIdCardRepository.save(studentIdCard);
+
+
+
+
+
+            student.addEnrolment(new Enrolment(
+                    new EnrolmentId(1L, 1L),
+                    student,
+                    new Course("Computer Science","IT"),
+                    LocalDateTime.now()
+            ));
+
+            student.addEnrolment(new Enrolment(
+                    new EnrolmentId(1L, 2L),
+                    student,
+                    new Course("Amigoscode Spring Data JPA","IT"),
+                    LocalDateTime.now().minusDays(18)
+            ));
 
             studentRepository.save(student);
-            studentIdCardRepository.save(studentIdCard);
-
 
             studentRepository.findById(1L)
                     .ifPresent(s -> {
