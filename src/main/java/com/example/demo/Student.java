@@ -67,7 +67,7 @@ public class Student {
             mappedBy = "student",
             orphanRemoval = true,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     private List<Book> books = new ArrayList<>();
 
@@ -124,6 +124,14 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public void addBook(Book book){

@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -43,6 +44,15 @@ public class Application {
                             "123456789",
                              student);
             studentIdCardRepository.save(studentIdCard);
+
+            studentRepository.findById(1L)
+                    .ifPresent(s -> {
+                        System.out.println("fetch book lazy ...");
+                        List<Book> books = student.getBooks();
+                        books.forEach(book -> {
+                            System.out.println(s.getFirstName() + " borrowed " + book.getBookName());
+                        });
+                    });
         };
     }
 
