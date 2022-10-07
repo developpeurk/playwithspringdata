@@ -59,7 +59,11 @@ public class Student {
     )
     private Integer age;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(
+            mappedBy = "student",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
+    )
     private StudentIdCard studentIdCard;
 
 
@@ -132,6 +136,10 @@ public class Student {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public void setStudentIdCard(StudentIdCard studentIdCard) {
+        this.studentIdCard = studentIdCard;
     }
 
     public void addBook(Book book){

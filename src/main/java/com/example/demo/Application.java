@@ -43,7 +43,11 @@ public class Application {
                     new StudentIdCard(
                             "123456789",
                              student);
+
+            student.setStudentIdCard(studentIdCard);
+            studentRepository.save(student);
             studentIdCardRepository.save(studentIdCard);
+
 
             studentRepository.findById(1L)
                     .ifPresent(s -> {
