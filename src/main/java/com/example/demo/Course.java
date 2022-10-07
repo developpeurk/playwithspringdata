@@ -79,6 +79,10 @@ public class Course {
         this.department = department;
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
+
     @Override
     public String toString() {
         return "Course{" +

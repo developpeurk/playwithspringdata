@@ -45,6 +45,10 @@ public class Application {
                              student);
 
             student.setStudentIdCard(studentIdCard);
+
+            student.enrolToCourse(new Course("Computer Science","IT"));
+            student.enrolToCourse(new Course("Amigoscode Spring Data JPA","IT"));
+
             studentRepository.save(student);
             studentIdCardRepository.save(studentIdCard);
 
