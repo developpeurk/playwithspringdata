@@ -67,7 +67,7 @@ public class Student {
             mappedBy = "student",
             orphanRemoval = true,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY
     )
     private List<Book> books = new ArrayList<>();
 
